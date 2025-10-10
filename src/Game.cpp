@@ -15,6 +15,8 @@ Game::~Game()
 
 bool Game::init()
 {
+
+	state = MENU;
 	character = new sf::Sprite;
 	passport = new sf::Sprite;
 	sf::Texture* animals = new sf::Texture[3];
@@ -37,15 +39,13 @@ bool Game::init()
 		window.getSize().y / 6 - menuText.getGlobalBounds().height / 2);
 
 	// Gameplay screen
-	if (!backgroundTexture.loadFromFile("../Data/Images/Whackamole Worksheet/background.png"))
+	if (!backgroundTexture.loadFromFile("../Data/WhackaMoleWorksheet/background.png"))
 	{
 		std::cout << "no bg\n";
 	}
 	background.setTexture(backgroundTexture);
 	background.setScale(1, 1);
-	background.setPosition(
-		window.getSize().x / 2 - background.getGlobalBounds().width,
-		window.getSize().y / 2 - background.getGlobalBounds().height);
+
 
   return true;
 }
