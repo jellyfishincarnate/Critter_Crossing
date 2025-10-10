@@ -15,10 +15,26 @@ class Game
   void mouseClicked(sf::Event event);
   void keyPressed(sf::Event event);
 
+private:
+    enum gameState
+    {
+        MENU,
+        GAMEPLAY
+    };
+
  private:
-  sf::RenderWindow& window;
-  sf::Sprite ball;
-  sf::Texture ball_texture;
+     sf::RenderWindow& window;
+     sf::Sprite* character;
+     sf::Sprite* passport;
+     sf::Texture* animals;
+     sf::Texture* passports;
+
+     sf::Text menuText;
+     sf::Font font;
+     sf::Sprite background;
+     sf::Texture backgroundTexture;
+
+     enum gameState state;
 
 };
 
