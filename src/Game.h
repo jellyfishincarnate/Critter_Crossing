@@ -10,6 +10,8 @@ class Game
   Game(sf::RenderWindow& window);
   ~Game();
   bool init();
+  void newAnimal();
+  void dragSprite(sf::Sprite* sprite);
   void update(float dt);
   void render();
   void mouseClicked(sf::Event event);
@@ -24,15 +26,22 @@ private:
 
  private:
      sf::RenderWindow& window;
-     sf::Sprite* character;
-     sf::Sprite* passport;
-     sf::Texture* animals;
-     sf::Texture* passports;
-
+     sf::Sprite* character = nullptr;
+     sf::Sprite* passport = nullptr;
+     sf::Texture* animalsTexture = nullptr;
      sf::Text menuText;
      sf::Font font;
      sf::Sprite background;
      sf::Texture backgroundTexture;
+
+     sf::Texture* animals = new sf::Texture[3];
+     sf::Texture* passports = new sf::Texture[3];
+
+     sf::Sprite* dragged = nullptr;
+
+     bool passport_accepted; 
+     bool passport_rejected;
+     bool should_accept;
 
      enum gameState state;
 
