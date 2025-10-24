@@ -15,6 +15,8 @@ class Game
   void update(float dt);
   void render();
   void mouseClicked(sf::Event event);
+  void mouseButtonPressed(sf::Event event);
+  void mouseButtonReleased(sf::Event event);
   void keyPressed(sf::Event event);
 
 private:

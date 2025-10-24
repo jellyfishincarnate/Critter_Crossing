@@ -129,12 +129,35 @@ void Game::render()
 	}
 }
 
+//mouse handling
+
+
+
 void Game::mouseClicked(sf::Event event)
 {
   //get the click position
   sf::Vector2i click = sf::Mouse::getPosition(window);
 
 
+}
+
+void Game::mouseButtonPressed(sf::Event event)
+{
+	if (event.mouseButton.button == sf::Mouse::Left)
+	{
+		sf::Vector2i click = sf::Mouse::getPosition(window);
+		sf::Vector2f clickf = static_cast<sf::Vector2f>(click);
+
+		if (passport->getGlobalBounds().contains(clickf))
+		{
+			dragged = passport;
+		}
+	}
+}
+
+void Game::mouseButtonReleased(sf::Event event)
+{
+	
 }
 
 void Game::keyPressed(sf::Event event)
