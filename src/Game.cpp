@@ -138,7 +138,10 @@ void Game::mouseClicked(sf::Event event)
   //get the click position
   sf::Vector2i click = sf::Mouse::getPosition(window);
 
-
+  if (dragged = passport) //make sure you click the sprite with some function
+  {
+	  dragSprite(passport);
+  }
 }
 
 void Game::mouseButtonPressed(sf::Event event)
@@ -157,7 +160,10 @@ void Game::mouseButtonPressed(sf::Event event)
 
 void Game::mouseButtonReleased(sf::Event event)
 {
-	
+	if (event.mouseButton.button == sf::Mouse::Left)
+	{
+		dragged = nullptr;
+	}
 }
 
 void Game::keyPressed(sf::Event event)
